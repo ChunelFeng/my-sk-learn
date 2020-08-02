@@ -18,6 +18,11 @@ import numpy as np
 # pca和svd都是降维的方式
 # 用来找出n个新特征向量，让数据能够被压缩到少数特征上，并且总信息不损失的方法，就叫做矩阵分解
 # 降维特征是creative维度数据，无法解释
+# pca更多的是求解协方差矩阵，svd关键在于特征值分解
+
+# pca
+# 降维后的各个维度之间相互独立，即去除降维之前样本x中各个维度之间的相关性。
+# 最大程度保持降维后的每个维度数据的多样性，即最大化每个维度内的方差
 
 
 def show_pca_variance_ratio():
@@ -27,6 +32,7 @@ def show_pca_variance_ratio():
 
     pca_line = PCA().fit(x)
 
+    # 下面这句话的意思是，将pca_line中的0，1，2，3个值依次累加，放到对应的位置
     plt.plot([1, 2, 3, 4], np.cumsum(pca_line.explained_variance_ratio_))
     plt.xticks(([1, 2, 3, 4]))
     plt.show()    # 显示4个维度中，对结果的贡献率
@@ -57,5 +63,5 @@ def show_pca_result():
 
 
 if __name__ == '__main__':
-    # show_pca_variance_ratio()
-    show_pca_result()
+    show_pca_variance_ratio()
+    # show_pca_result()
