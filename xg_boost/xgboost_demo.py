@@ -65,7 +65,6 @@ def draw_curve():
     plt.show()
 
 
-
 def xgboost_demo():
     data = load_boston()
     x = data.data
